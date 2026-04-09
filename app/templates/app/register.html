@@ -1,0 +1,123 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Register Page</title>
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    font-family: 'Arial', sans-serif;
+    perspective: 1000px; /* For 3D effect */
+}
+
+/* Card container */
+.register-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* 3D hover effect */
+.register-card:hover {
+    transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+    box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+}
+
+/* Card title */
+.register-card h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Input fields */
+.register-card input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.register-card input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106,17,203,0.5);
+}
+
+/* Button styling */
+.register-card button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #6a11cb;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.register-card button:hover {
+    background: #2575fc;
+    transform: translateY(-3px);
+}
+
+/* Small link below */
+.register-card p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-card p a {
+    color: #6a11cb;
+    text-decoration: none;
+}
+
+.register-card p a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="register-card">
+    <h2>Create Account</h2>
+    <form method="POST"{% url 'register' %}">
+        {% csrf_token %}
+       <input type="text" name="first_name" placeholder="First Name" required>
+       <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="text" name="username" placeholder="username" required>
+       <input type="email" name="email" placeholder="Email" required>
+       <input type="password" name="password" placeholder="Password" required>
+       <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+       <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+</div>
+
+</body>
+</html>

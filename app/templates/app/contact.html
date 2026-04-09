@@ -1,0 +1,161 @@
+
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+  }
+
+  main {
+    flex: 1;
+    padding: 200px;
+  }
+
+  footer {
+    background: lch(46.78% 92.82 39.26 / 0);
+    color: hsl(114, 92%, 47%);
+    padding: 40px 20px;
+  }
+
+  /* Footer main container */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Contact form on left */
+  .contact-form {
+    flex: 1 1 400px;
+    margin: 0%;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 20px;
+  }
+
+  .contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    background: hsla(30, 100%, 2%, 0.823);
+    color: hwb(0 1% 90%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background: hsl(24, 79%, 4%);
+  }
+
+  /* Right side: Address + Nav */
+  .right-section {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    flex-wrap: wrap;
+  }
+
+  .contact-info {
+    flex: 1 1 200px;
+  }
+
+  .contact-info h3 {
+    margin-bottom: 15px;
+  }
+
+  .contact-info p {
+    margin: 30px 0;
+  }
+
+  .footer-nav {
+    flex: 1 1 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+
+  .footer-nav a {
+    color: hsl(0, 100%, 4%);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .footer-nav a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 800px) {
+    .footer-container {
+      flex-direction: column;
+    }
+    .right-section {
+      flex-direction: column;
+    }
+    .footer-nav {
+      flex-direction: row;
+      gap: 60px;
+      margin-left: 0;
+      margin-top: 30px;
+    }
+  }
+body {
+    background-color: #000f05; /* dark green */
+}
+.card {
+    background-color: #111; /* dark card */
+    color: #fff;
+}
+.container {
+    background-color: #1a1a1a;
+}
+
+
+</style>
+<footer>
+  <div class="footer-container">
+    <!-- Contact Form Left -->
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <form method="POST"{% url 'contact' %}"></form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <p id="formMessage" style="text-align:center;"></p>
+    </div>

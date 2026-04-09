@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3D Card</title>
+
+<style>
+    body {
+        background: hsl(140, 91%, 9%);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120vh;
+    }
+
+    .container {
+        perspective: 1000px; /* 3D depth */
+    }
+
+    .card {
+        width: 300px;
+        background: hsla(126, 100%, 2%, 0);
+        padding: 200px;
+        border-radius: 20px;
+        text-align: center;
+        color: #fff;
+        transition: transform 0.5s ease;
+        transform-style: preserve-3d;
+        box-shadow: 0 40px 40px rgba(0,0,0,0.4);
+    }
+
+    /* 🔥 3D Hover Animation */
+    .container:hover .card {
+        transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+    }
+
+    .card img {
+        width: 450px;
+        height: 500px;
+        object-fit: cover;
+        margin-bottom: 50px;
+        transform: translateZ(40px); /* depth */
+        object-fit: cover;
+    }
+
+    .card h3 {
+        transform: translateZ(30px);
+    }
+
+    .card p {
+        transform: translateZ(20px);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <img src="{% static 'images/photo.jpg' %}" alt="profile">
+        <h1>SANJEEV KUMAR</h1>
+        <p>Web Developer</p>
+        <p>Sanjeev Kumar
+        Software Developer
+
+         I am a passionate developer skilled in Python, Django, Docker, Git, GitHub, and Data Science, with a strong academic background from Galgotias University.</p>
+        <p>Phone: <a href="tel:+918881607717">+91 8881607717</a></p>
+        <p>📧 <a href="skkumar@888160.com">skkumar@888160.com</a></p>
+    </div>
+
+</div>
+
+    
+</div>
+</body>
+</html>
