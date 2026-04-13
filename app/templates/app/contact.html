@@ -1,161 +1,316 @@
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodingHub Contact</title>
 
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-  }
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000f05;
+    }
 
-  body {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-  }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-  main {
-    flex: 1;
-    padding: 200px;
-  }
+    /* Navbar */
+    nav {
+      background-color: #111;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  footer {
-    background: lch(46.78% 92.82 39.26 / 0);
-    color: hsl(114, 92%, 47%);
-    padding: 40px 20px;
-  }
+    nav h2 {
+      color: #22c55e;
+      margin: 0;
+    }
 
-  /* Footer main container */
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 600px;
-    margin: 0 auto;
-  }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
 
-  /* Contact form on left */
-  .contact-form {
-    flex: 1 1 400px;
-    margin: 0%;
-  }
+    .nav-links a:hover {
+      color: #22c55e;
+    }
 
-  .contact-form h2 {
-    margin-bottom: 20px;
-  }
+    main {
+      flex: 1;
+      padding: 60px 20px;
+    }
 
-  .contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+    footer {
+      color: hsl(114, 92%, 47%);
+      padding: 40px 20px;
+      background: transparent;
+    }
 
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: none;
-  }
-
-  .contact-form button {
-    padding: 10px 20px;
-    background: hsla(30, 100%, 2%, 0.823);
-    color: hwb(0 1% 90%);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .contact-form button:hover {
-    background: hsl(24, 79%, 4%);
-  }
-
-  /* Right side: Address + Nav */
-  .right-section {
-    flex: 1 1 300px;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    flex-wrap: wrap;
-  }
-
-  .contact-info {
-    flex: 1 1 200px;
-  }
-
-  .contact-info h3 {
-    margin-bottom: 15px;
-  }
-
-  .contact-info p {
-    margin: 30px 0;
-  }
-
-  .footer-nav {
-    flex: 1 1 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 20px;
-  }
-
-  .footer-nav a {
-    color: hsl(0, 100%, 4%);
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-
-  .footer-nav a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 800px) {
     .footer-container {
-      flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 30px;
     }
+
+    .contact-form {
+      flex: 1 1 400px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #22c55e;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background: #14532d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #166534;
+    }
+
     .right-section {
-      flex-direction: column;
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
+
+    .contact-info {
+      flex: 1 1 200px;
+      color: white;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 15px;
+      color: #22c55e;
+    }
+
+    .contact-info p {
+      margin: 15px 0;
+    }
+
     .footer-nav {
-      flex-direction: row;
-      gap: 60px;
-      margin-left: 0;
-      margin-top: 30px;
+      flex: 1 1 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left: 20px;
     }
-  }
-body {
-    background-color: #000f05; /* dark green */
+
+    .footer-nav a {
+      color: #22c55e;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background-color: #111;
+      color: #fff;
+      position: relative;
+      
+    }
+
+    .container {
+      background-color: #1a1a1a;
+      position: relative;
+    }
+
+    @media (max-width: 800px) {
+      .footer-container {
+        flex-direction: column;
+      }
+
+      .right-section {
+        flex-direction: column;
+      }
+
+      .footer-nav {
+        flex-direction: row;
+        gap: 30px;
+        margin-left: 0;
+        margin-top: 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        margin: 5px 10px;
+      }
+
+      body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  font-family: Arial, sans-serif;
 }
-.card {
-    background-color: #111; /* dark card */
-    color: #fff;
+
+/* Outer Frame */
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-.container {
-    background-color: #1a1a1a;
+
+/* Inner Card */
+.contact-card {
+  background: #1e1e1e;
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  color: white;
 }
 
+/* Heading */
+.contact-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-</style>
-<footer>
-  <div class="footer-container">
-    <!-- Contact Form Left -->
-    <div class="contact-form">
-      <h2>Contact Us</h2>
-      <form id="contactForm">
-        <form method="POST"{% url 'contact' %}"></form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+/* Inputs */
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+}
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+/* Button */
+.contact-card button {
+  width: 100%;
+  padding: 10px;
+  background: #00bcd4;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+.contact-card button:hover {
+  background: #0097a7;
+}
+    }
 
-        <button type="submit">Send</button>
-      </form>
-      <p id="formMessage" style="text-align:center;"></p>
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2>CodingHub</h2>
+    <div class="nav-links">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
     </div>
+</nav>
+
+  <main>
+    <!-- Page content here -->
+  </main>
+<div class="crad">
+  <footer>
+    <div class="footer-container">
+
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+
+        <form method="POST" action="{% url 'contact' %}">
+          {% csrf_token %}
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+
+        <p id="formMessage" style="text-align:center; color:white;"></p>
+      </div>
+
+      <div class="right-section">
+        <div class="contact-info">
+          <h3>Contact Info</h3>
+          <p>Email: support@codinghub.com</p>
+          <p>Phone: +91 9876543210</p>
+          <p>Address: New Delhi, India</p>
+        </div>
+
+        <div class="footer-nav">
+          <a href="#">Home</a>
+          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'contact' %}">Contact</a>
+          <a href="{% url 'register' %}">Register</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

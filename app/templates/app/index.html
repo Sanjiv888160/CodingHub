@@ -40,7 +40,7 @@ nav {
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
-  background: hsla(328, 85%, 48%, 0.933);
+  background: hwb(328 0% 93%);
   backdrop-filter: blur(10px);
   z-index: 10;
 }
@@ -183,19 +183,20 @@ button {
 <body>
 
 <nav>
-  <h2>LearnCode</h2>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="{% url 'about' %}">About</a>
-    <a href="">Contact</a>
-    <a href="{% url 'register' %}">Register</a>
-    <a href="{% url 'login' %}">Login</a>
-  </div>
+    <h2>CodingHub</h2>
+    <div class="nav-links">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
 </nav>
 
 
 <section class="page">
-  <h1>Welcome To Coding Course</h1>
+  <h1>Welcome to Our Coding Course</h1>
+  <style>feDropShadow></style>
 </section>
 
 
@@ -209,9 +210,9 @@ button {
 .page h1 {
   display: inline-block;
   background: #724caf;   /* box color */
-  color: rgb(9, 213, 26);          /* text color */
-  padding: 30px 60px;    /* box size */
-  border-radius: 40px; 
+  color: lab(93.05% 2.11 -3.64);          /* text color */
+  padding: 30px 350px;    /* box size */
+   
   border-color: #e65c00; 
   border-left-style: dotted; 
   border-right-style: dotted; 
